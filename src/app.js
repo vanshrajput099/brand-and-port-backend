@@ -39,6 +39,8 @@ app.post("/api/v1/contact/send-mail", async (req, res) => {
                 `,
             });
 
+            console.log(result);
+
             if (result.error) {
                 return res.status(500).json({
                     error: "Failed to send email",
@@ -52,6 +54,7 @@ app.post("/api/v1/contact/send-mail", async (req, res) => {
             });
 
         } catch (err) {
+            console.log(err);
             return res.status(500).json({
                 error: "Failed to send email",
                 message: err.message,
@@ -59,6 +62,7 @@ app.post("/api/v1/contact/send-mail", async (req, res) => {
         }
 
     } catch (err) {
+        console.log(err);
         return res.status(500).json({
             message: err.message,
         });
